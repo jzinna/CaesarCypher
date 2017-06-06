@@ -8,6 +8,8 @@
 
 # iterate over each letter of the text and change it for the shifted letter
 
+# Try some object oriented things to do.
+
 # using range:    (can it be done?)
 # create empty new_text (text file, string? can't create this)
 # for all letters in text object    How do I do this?  for lines in txt, for words in line, for chars in word?
@@ -15,12 +17,6 @@
   # (create a class, that will have the required methods to create string char by char)
   # use the replace method of string, each char replaced by a new one?
 
-# using list comprehension  (online example was return ''.join([`num` for num in xrange(loop_count)]))
-# create list with text object, text_list   => mamushka of splits
-# create an empty list with future shifted letters (needed?)
-# for all letters (positions) in text_list
-    # make the shift at each position and add it to the list (or create, whatever the method does) 
-# turn the list into text, file name new_text
 
 # return new_text as the 'encrypted text'
   
