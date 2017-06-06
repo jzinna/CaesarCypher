@@ -8,12 +8,6 @@
 
 # iterate over each letter of the text and change it for the shifted letter
 
-# using range:    (can it be done?)
-# create empty new_text (text file, string? can't create this)
-# for all letters in text object    How do I do this?  for lines in txt, for words in line, for chars in word?
-    # new_text[i] = shifted alphabet[i]   this won't work, need to find a way to 'append' to the text file 
-  # (create a class, that will have the required methods to create string char by char)
-  # use the replace method of string, each char replaced by a new one?
 
 # using list comprehension  (online example was return ''.join([`num` for num in xrange(loop_count)]))
 # create list with text object, text_list   => mamushka of splits
