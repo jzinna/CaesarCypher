@@ -3,7 +3,7 @@
 # file-objet = open given file
 # text object = file-object.readlines()
 
-# alphabet = 'abcdef...'
+# alphabet = 'abcdef...' => I can import string module and use string.ascii_lowercase as the constant that contains the alphabet
 # shifted_alphabet = last n letters + alphabet minus last n letters   => n is the given key
 
 # iterate over each letter of the text and change it for the shifted letter
@@ -15,7 +15,7 @@
   # (create a class, that will have the required methods to create string char by char)
   # use the replace method of string, each char replaced by a new one?
 
-# using the other I don't rememnber name
+# using list comprehension  (online example was return ''.join([`num` for num in xrange(loop_count)]))
 # create list with text object, text_list   => mamushka of splits
 # create an empty list with future shifted letters (needed?)
 # for all letters (positions) in text_list
