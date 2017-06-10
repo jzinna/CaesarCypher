@@ -1,18 +1,20 @@
 ''' This program will take a text and a key (a number), and return the text shifted (number) of letters to the right '''
 
 import string
-class working_text(list of lines in the text, key)
-# class for text to be encrypted.  Will require a string and also the key
-    # define two private constants, string.ascii_lowercase and uppercase (these have the alphabet)
-    
-    # constructor will establish the two shifted alphabets, upper and lower case, based on the key provided
-        # if key > 26
-            # print that key must be lower than 26
-            # break
-        # else
-            # lcase shifted alph = lcase alph[(key - 1) to 25] + lcase alph[0 to (key - 2)]
-            # ucase shifted alph = ucase alph[(key - 1) to 25] + ucase alph[0 to (key - 2)]
-    
+class WorkingText
+# class for text to be encrypted.  Will require a list of lines and a key
+    def __init__(self,lines_of_the_text,key):
+        self.lns_txt = lines_of_the_text
+        self.ky = key
+        __lcase_alph = string.ascii_lowercase
+        __ucase_alph = string.ascii_uppercase
+        # constructor will establish the two shifted alphabets, upper and lower case, based on the key provided
+        if key > 26:
+            print('key must be lower than 26')
+            # break => won't work here, other ideas for not allowing creation of the object?
+        else:
+            lcase_shftd_alph = __lcase_alph[(self.ky - 1):25] + __lcase_alph[0:(self.ky - 2)]
+            ucase_shftd_alph = __ucase_alph[(self.ky - 1):25] + __ucase_alph[0:(self.ky - 2)]
     # def encrypt()
         # iterate through each position, which will each be a line of the text
             # on each line, a list can be created, list(line), it should have each character in a different position (check if the... 
