@@ -34,7 +34,7 @@ class working_text(list of lines in the text, key)
             # find its position pos in the unshifted ucase alphabet
             # find the new character in the shifted ucase alphabet, using pos
 
-main encrypt_Caesar(file_path, key)
+script
     # file-objet = open given file, from file path
     # list of strings = file-object.readlines() => each position in the list will be a string with one line of text
     # create an encrypted file object of class 'working_text', providing the list of strings and the key
