@@ -30,6 +30,10 @@ class WorkingText
         # once we have the whole list of words in the file shifted, convert the list to a string
         # return the string as the response, shifted text
         
+        
+    # def encrypt_with_comprehension():
+        
+        
     # def get_shifted_char(char)
         # check if it's alphanumeric (can list command create blank spaces or newline chars??)        
         # check if lower or upper case
