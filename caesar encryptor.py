@@ -3,18 +3,22 @@
 import string
 class WorkingText
 # class for text to be encrypted.  Will require a list of lines and a key
-    def __init__(self,lines_of_the_text,key):
+    def __new__(self , lines_of_the_text , key)
+        if key > 26:
+            raise TypeError('key must be lower than 26')
+            # break => won't work here, other ideas for not allowing creation of the object?
+        else:
+            return WorkingText.__new__(self , lines_of_the_text , key)
+    
+    def __init__(self , lines_of_the_text , key):
         self.lns_txt = lines_of_the_text
         self.ky = key
         __lcase_alph = string.ascii_lowercase
         __ucase_alph = string.ascii_uppercase
         # constructor will establish the two shifted alphabets, upper and lower case, based on the key provided
-        if key > 26:
-            print('key must be lower than 26')
-            # break => won't work here, other ideas for not allowing creation of the object?
-        else:
-            lcase_shftd_alph = __lcase_alph[(self.ky - 1):25] + __lcase_alph[0:(self.ky - 2)]
-            ucase_shftd_alph = __ucase_alph[(self.ky - 1):25] + __ucase_alph[0:(self.ky - 2)]
+        lcase_shftd_alph = __lcase_alph[(self.ky - 1):25] + __lcase_alph[0:(self.ky - 2)]
+        ucase_shftd_alph = __ucase_alph[(self.ky - 1):25] + __ucase_alph[0:(self.ky - 2)]
+    
     # def encrypt()
         # iterate through each position, which will each be a line of the text
             # on each line, a list can be created, list(line), it should have each character in a different position (check if the... 
@@ -25,6 +29,10 @@ class WorkingText
                 # replace the original version of the word with the shifted version
         # once we have the whole list of words in the file shifted, convert the list to a string
         # return the string as the response, shifted text
+        
+        
+    # def encrypt_with_comprehension():
+        
         
     # def get_shifted_char(char)
         # check if it's alphanumeric (can list command create blank spaces or newline chars??)        
