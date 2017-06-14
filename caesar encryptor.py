@@ -57,7 +57,8 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
         # return the string as the response, shifted text
 
     '''def encrypt_with_comprehension(self):
-        encrypted_list = ['sonrisa' for item in self.lns_txt]
+        # have a function here that gives me the character/word I need to replace, make it a string
+        encrypted_list = ['a string' for item in self.lns_txt]      # have the string from previous line as an argument here
         print(encrypted_list)       '''
 
 
