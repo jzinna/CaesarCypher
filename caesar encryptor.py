@@ -7,9 +7,9 @@ import string
 
 
 class WorkingText:  # class for text to be encrypted.  Will require a string and also the key
-    __encrypted_list = []
-    __lcase_alph = string.ascii_lowercase
-    __ucase_alph = string.ascii_uppercase
+    # do I need this list?  __encrypted_list = []
+    # __lcase_alph = string.ascii_lowercase
+    # __ucase_alph = string.ascii_uppercase
 
     #def __new__(self , lines_of_the_text , key):
     '''if self.ky > 26:
@@ -28,8 +28,8 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
             raise KeyError
 
         else:
-            lcase_shftd_alph = __class__.__lcase_alph[(self.ky - 1):25] + __class__.__lcase_alph[0:(self.ky - 2)]
-            ucase_shftd_alph = __class__.__ucase_alph[(self.ky - 1):25] + __class__.__lcase_alph[0:(self.ky - 2)]
+            self.lcase_shftd_alph = string.ascii_lowercase[(self.ky - 1):25] + string.ascii_lowercase[0:(self.ky - 2)]
+            self.ucase_shftd_alph = string.ascii_uppercase[(self.ky - 1):25] + string.ascii_uppercase[0:(self.ky - 2)]
 
     def encrypt(self):
         count = 0
@@ -45,9 +45,9 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
                     # check if lower or upper case
                     if char.islower():
                         # find its position pos in the unshifted lcase alphabet
-                        pos = __class__.__lcase_alph.find(char)
+                        pos = string.ascii_lowercase.find(char)
                         # find the new character in the shifted lcase alphabet, using pos
-                        newchar = __class__.lcase_shftd_alph[pos]
+                        newchar = self.lcase_shftd_alph[pos]
         # else
         # find its position pos in the unshifted ucase alphabet
         # find the new character in the shifted ucase alphabet, using pos
@@ -57,8 +57,7 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
         # return the string as the response, shifted text
 
     '''def encrypt_with_comprehension(self):
-        # have a function here that gives me the character/word I need to replace, make it a string
-        encrypted_list = ['a string' for item in self.lns_txt]      # have the string from previous line as an argument here
+        encrypted_list = ['sonrisa' for item in self.lns_txt]
         print(encrypted_list)       '''
 
 
