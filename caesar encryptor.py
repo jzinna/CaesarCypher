@@ -7,7 +7,7 @@ import string
 
 
 class WorkingText:  # class for text to be encrypted.  Will require a string and also the key
-    __encrypted_list = []
+    # do I need this list?  __encrypted_list = []
     # __lcase_alph = string.ascii_lowercase
     # __ucase_alph = string.ascii_uppercase
 
