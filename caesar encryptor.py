@@ -7,7 +7,7 @@ import string
 
 
 class WorkingText:  # class for text to be encrypted.  Will require a string and also the key
-    # create an empty private list, __encrypted_list
+    # create an empty private list, __encrypted_list => do I need it?
 
     # constructor __init__(self, lines_of_the_text, key):
         # create variable lns_txt from lines_of_the_text
