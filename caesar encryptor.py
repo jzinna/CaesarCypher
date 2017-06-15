@@ -25,12 +25,12 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
 
     # define the principal method of the class, encrypt(self):
         # iterate through each position of the list lns_txt, which will each be a line of the text
-            # on each line, a list can be created, list(line), it should have each character in a different position
+            # on each line, a list can be created, list(line), ('characters_list') it should have each character in a different position
             # iterate through each character
                 # check if it's alphanumeric (can list command create blank spaces or newline chars??)
                     # if it is, call method encrypted_character
                 # if it's not alphanumeric, flow should go to next iteration
-                # replace this character in the list
+                # replace this character in the list (each position in the list is a character, so it's a simple list replacement)
             # replace the original version of the line with the shifted version, simple list replacement
         # once we have the whole list of words in the file shifted, convert the list to a string
         # return the string as the response, shifted text
