@@ -7,55 +7,59 @@ import string
 
 
 class WorkingText:  # class for text to be encrypted.  Will require a string and also the key
-    # create an empty private list, __encrypted_list => do I need it?
+    # do I need this list?  __encrypted_list = []
+    # __lcase_alph = string.ascii_lowercase
+    # __ucase_alph = string.ascii_uppercase
 
-    # constructor __init__(self, lines_of_the_text, key):
-        # create variable lns_txt from lines_of_the_text
-        # create variable ky from key
-        # if the key is > 26
-            # show message 'key must be lower than 26')
-            # raise KeyError for now, later may ask user for a viable key
-        # if key is within range:
-            # constructor will establish the two shifted alphabets, upper and lower case, based on the key provided
-            # lowercase shifted alphabet will concatenate the original from the key to the end, and the original from
-                        # start to key-1        self.lcase_shftd_alph = string.ascii_lowercase[(self.ky - 1):25] +
-                        # string.ascii_lowercase[0:(self.ky - 2)]
-            # uppercase uses same principle     self.ucase_shftd_alph = string.ascii_uppercase[(self.ky - 1):25] +
-                        # string.ascii_uppercase[0:(self.ky - 2)]
 
-    # define the principal method of the class, encrypt(self):
+    def __init__(self, lines_of_the_text, key):
+        self.lns_txt = lines_of_the_text
+        self.ky = key
+    # constructor will establish the two shifted alphabets, upper and lower case, based on the key provided
+        if self.ky > 26:
+            print('key must be lower than 26')
+            raise KeyError
+
+        else:
+            self.lcase_shftd_alph = string.ascii_lowercase[(self.ky - 1):25] + string.ascii_lowercase[0:(self.ky - 2)]
+            self.ucase_shftd_alph = string.ascii_uppercase[(self.ky - 1):25] + string.ascii_uppercase[0:(self.ky - 2)]
+
+    def encrypt(self):  # define the principal method of the class, encrypt(self):
         # iterate through each position of the list lns_txt, which will each be a line of the text
-            # on each line, a list can be created, list(line), ('characters_list') it should have each character in a different position
+        for line in self.lns_txt:
+            # on each line, a list can be created, list(line), it should have each character in a different position
+            characters_list = list(line)
             # iterate through each character
-                # check if it's alphanumeric (can list command create blank spaces or newline chars??)
-                    # if it is, call method encrypted_character
-                # if it's not alphanumeric, flow should go to next iteration
-                # replace this character in the list (each position in the list is a character, so it's a simple list replacement)
-            # replace the original version of the line with the shifted version, simple list replacement
+            for char in characters_list:
+                # check if it's alphanumeric (can list command create blank spaces or newline chars?? or any non-alphanumeric?)
+                if char.isalpha():
+                    __class__.encrypted_character(char)
+                else:
+                    # flow should continue.  If do nothing, will it continue?
+
+
+                # replace the original version of the word with the shifted version
         # once we have the whole list of words in the file shifted, convert the list to a string
         # return the string as the response, shifted text
 
-    # define an internal method (function?) that will take each character and return the encrypted one
-                    # method can be called encrypted_character (methods or functions should name what they return)
-        # check if character is lower case
-            # if it is, find its position pos in the unshifted lcase alphabet
-            # determine the encrypted character by looking for variable pos in the shifted lcase alphabet
-        # if not, it's upper case
+    def encrypted_character(self, char):
+        # check if lower or upper case
+        if char.islower():
+            # find its position pos in the unshifted lcase alphabet
+            pos = string.ascii_lowercase.find(char)
+            # find the new character in the shifted lcase alphabet, using pos
+            newchar = self.lcase_shftd_alph(pos)
+        else:
             # find its position pos in the unshifted ucase alphabet
-            # determine the encrypted character by looking for variable pos in the shifted ucase alphabet
-        # return the encrypted character
-
-
-
-
-
-
-    '''def encrypt_with_comprehension(self):
-        encrypted_list = ['sonrisa' for item in self.lns_txt]
-        print(encrypted_list)       '''
+            pos = string.ascii_uppercase.find(char)
+            # find the new character in the shifted ucase alphabet, using pos
+            newchar = self.ucase_shftd_alph(pos)
+            # replace this character in the list
 
 
 def main(path, key):
+    # key = 20
+    # file_object = open('test.txt','r')
     file_object = open(path, 'r')
     lines_of_the_text = file_object.readlines() #each position in the list will be a string with one line of the given text
     # create an encrypted file object of class 'working_text', providing the list of strings and the key
