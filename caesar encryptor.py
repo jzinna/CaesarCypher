@@ -16,9 +16,9 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
         self.lns_txt = lines_of_the_text
         self.ky = key
     # constructor will establish the two shifted alphabets, upper and lower case, based on the key provided
-        if self.ky > 26:
+        if self.ky > 26:        #place this in the main clause?
             print('key must be lower than 26')
-            raise KeyError
+            raise KeyError      #in the future, return to the user and ask for a viable key
 
         else:
             self.lcase_shftd_alph = string.ascii_lowercase[(self.ky - 1):25] + string.ascii_lowercase[0:(self.ky - 2)]
@@ -30,17 +30,27 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
             # on each line, a list can be created, list(line), it should have each character in a different position
             characters_list = list(line)
             # iterate through each character
-            for char in characters_list:
-                # check if it's alphanumeric (can list command create blank spaces or newline chars?? or any non-alphanumeric?)
+            
+            # without range:
+            for char in characters_list
                 if char.isalpha():
-                    __class__.encrypted_character(char)
+                    new_char = _class_.encrypted_character(char)
+                    char = new_char
+                    
+            # with range:
+            """for i in range(length(characters_list)):
+                # check if it's alphanumeric (can list command create blank spaces or newline chars?? or any non-alphanumeric?)
+                if characters_list[i].isalpha():
+                    new_char = __class__.encrypted_character(characters_list[i])
+                    characters_list[i] = new_char"""
                 else:
-                    # flow should continue.  If do nothing, will it continue?
-
-
-                # replace the original version of the word with the shifted version
+                    # flow should continue.  If I take out 'else:', will it continue?  
+        
+            line = str(characters_list)  # replace the original version of the line with the shifted version
         # once we have the whole list of words in the file shifted, convert the list to a string
         # return the string as the response, shifted text
+        return str(self.lns_txt) 
+        
 
     def encrypted_character(self, char):
         # check if lower or upper case
@@ -54,7 +64,8 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
             pos = string.ascii_uppercase.find(char)
             # find the new character in the shifted ucase alphabet, using pos
             newchar = self.ucase_shftd_alph(pos)
-            # replace this character in the list
+        return newchar
+        # replace this character in the list
 
 
 def main(path, key):
