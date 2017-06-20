@@ -65,7 +65,7 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
             # find the new character in the shifted ucase alphabet, using pos
             newchar = self.ucase_shftd_alph(pos)
         return newchar
-        # replace this character in the list
+        
 
 
 def main(path, key):
