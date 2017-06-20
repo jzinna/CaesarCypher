@@ -29,17 +29,17 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
             # iterate through each character
 
             # without range:
-            """for char in characters_list:
+            for char in characters_list:
                 if char.isalpha():      #(list command creates non-alphanumeric characters)
                     new_char = __class__.encrypted_character(self, char)
-                    char = new_char"""
+                    char = new_char
 
             # with range:
-            for i in range(len(characters_list)):
+            """for i in range(len(characters_list)):
                 # check if it's alphanumeric (list command creates non-alphanumeric characters)
                 if characters_list[i].isalpha():
                     new_char = __class__.encrypted_character(self, characters_list[i])
-                    characters_list[i] = new_char
+                    characters_list[i] = new_char"""
                 #else:
                     # flow should continue.  If I take out 'else:', will it continue?
 
@@ -54,12 +54,12 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
             # find its position pos in the unshifted lcase alphabet
             pos = string.ascii_lowercase.find(char)
             # find the new character in the shifted lcase alphabet, using pos
-            newchar = self.lcase_shftd_alph(pos)
+            newchar = self.lcase_shftd_alph[pos]
         else:
             # find its position pos in the unshifted ucase alphabet
             pos = string.ascii_uppercase.find(char)
             # find the new character in the shifted ucase alphabet, using pos
-            newchar = self.ucase_shftd_alph(pos)
+            newchar = self.ucase_shftd_alph[pos]
         return newchar
 
 
