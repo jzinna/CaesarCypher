@@ -38,6 +38,8 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
                 if characters_list[i].isalpha():
                     new_char = __class__.encrypt_char(self, characters_list[i])
                     characters_list[i] = new_char
+                else:
+                    continue
             
             # new_list = [__class__.encrypt_char(self, char) for char in characters_list if char.isalpha()]
             
