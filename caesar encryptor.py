@@ -33,7 +33,14 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
                     
                 else:
                     continue        # non-alphanumeric are not encrypted"""
-            new_list = [__class__.encrypt_char(char) for char in characters_list]
+            for i in range(len(characters_list)):
+            # check if it's alphanumeric (list command creates non-alphanumeric characters)
+                if characters_list[i].isalpha():
+                    new_char = __class__.encrypt_char(self, characters_list[i])
+                    characters_list[i] = new_char
+            
+            # new_list = [__class__.encrypt_char(self, char) for char in characters_list if char.isalpha()]
+            
             line = str(characters_list)  # replace the original version of the line with the shifted version
         # once we have the whole list of words in the file shifted, convert the list to a string
         response = str(self.lns_txt)
