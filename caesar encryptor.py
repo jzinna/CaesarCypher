@@ -1,5 +1,5 @@
 ''' This program will take a text and a key (a number), and return the text shifted (number) of letters to the right
->>> main('test.txt', 1)
+#>>> main('test.txt', 1)
 'bb'
 '''
 
@@ -23,16 +23,11 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
 
     def encrypt(self):  # define the principal method of the class, encrypt(self):
         # iterate through the positions of the list lns_txt, which will each be a line of the text
-        for line in self.lns_txt:
+        for j in range(len(self.lns_txt)):
             # on each line, a list can be created, list(line), it should have each character in a different position
-            characters_list = list(line)
+            characters_list = list(self.lns_txt[j])
             # iterate through each character
-            """for char in characters_list:
-                if char.isalpha():      # confirmed, list command creates non-alphanumeric characters
-                    char = __class__.encrypt_char(self, char)
-                    
-                else:
-                    continue        # non-alphanumeric are not encrypted"""
+
             for i in range(len(characters_list)):
             # check if it's alphanumeric (list command creates non-alphanumeric characters)
                 if characters_list[i].isalpha():
@@ -40,16 +35,17 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
                     characters_list[i] = new_char
                 else:
                     continue
-            
+
             # new_list = [__class__.encrypt_char(self, char) for char in characters_list if char.isalpha()]
-            
-            line = str(characters_list)  # replace the original version of the line with the shifted version
+
+            self.lns_txt[j] = ''.join(characters_list)  # replace the original version of the line with the shifted version
         # once we have the whole list of words in the file shifted, convert the list to a string
-        response = str(self.lns_txt)
+        response = ''.join(self.lns_txt)
         # return the string as the response, shifted text
         return response
 
     def encrypt_char(self,ch):
+        new_char = ch
         if ch.islower():
             # find its position pos in the unshifted lcase alphabet
             pos = string.ascii_lowercase.find(ch)
@@ -103,10 +99,13 @@ def main(path, key):
 
     # just for good habit, will close the file-object after coming back from the method and doing stuff with the result
     file_object.close()
-    print (encrypted_text)
+    file_object = open('result.txt','w')
+    file_object.write(encrypted_text)
+    file_object.close()
 
-
-
+main('hamlet.txt', 1)
+"""
 if __name__== "__main__":
     import doctest
     doctest.testmod()
+"""
