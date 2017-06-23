@@ -12,13 +12,11 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
         self.lns_txt = lines_of_the_text
         self.ky = key
     # constructor will establish the two shifted alphabets, upper and lower case, based on the key provided
-        if self.ky > 26:        # place this in the main clause?
-            print('key must be lower than 26')
-            raise KeyError      # in the future, return to the user and ask for a viable key
-
-        else:
-            self.lcase_shftd_alph = string.ascii_lowercase[self.ky:26] + string.ascii_lowercase[0:self.ky]
-            self.ucase_shftd_alph = string.ascii_uppercase[self.ky:26] + string.ascii_uppercase[0:self.ky]
+        while self.ky > 26:        # place this in the main clause?
+            self.ky = input('key must be lower than 26 --->  ')
+            
+        self.lcase_shftd_alph = string.ascii_lowercase[self.ky:26] + string.ascii_lowercase[0:self.ky]
+        self.ucase_shftd_alph = string.ascii_uppercase[self.ky:26] + string.ascii_uppercase[0:self.ky]
 
     def encrypt(self):  # define the principal method of the class, encrypt(self):
         # iterate through the positions of the list lns_txt, which will each be a line of the text
