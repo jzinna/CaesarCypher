@@ -7,8 +7,7 @@ import string
 
 
 class WorkingText:  # class for text to be encrypted.  Will require a string and also the key
-    # do I need this list?  __encrypted_list = []
-
+    
     def __init__(self, lines_of_the_text, key):
         self.lns_txt = lines_of_the_text
         self.ky = key
@@ -36,8 +35,6 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
                 else:
                     continue
 
-            # new_list = [__class__.encrypt_char(self, char) for char in characters_list if char.isalpha()]
-
             self.lns_txt[j] = ''.join(characters_list)  # replace the original version of the line with the shifted version
         # once we have the whole list of words in the file shifted, convert the list to a string
         response = ''.join(self.lns_txt)
@@ -57,34 +54,6 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
             # find the new character in the shifted ucase alphabet, using pos
             new_char = self.ucase_shftd_alph[pos]
         return new_char
-
-
-"""    def encrypted_character(self, char):
-        # check if lower or upper case
-        if char.islower():
-            # find its position pos in the unshifted lcase alphabet
-            pos = string.ascii_lowercase.find(char)
-            # find the new character in the shifted lcase alphabet, using pos
-            newchar = self.lcase_shftd_alph[pos]
-        else:
-            # find its position pos in the unshifted ucase alphabet
-            pos = string.ascii_uppercase.find(char)
-            # find the new character in the shifted ucase alphabet, using pos
-            newchar = self.ucase_shftd_alph[pos]
-        return newchar
-        """
-
-
-""" def iterate_thru_chars_range(self,characters_list):   # with range:
-        for i in range(len(characters_list)):
-            # check if it's alphanumeric (list command creates non-alphanumeric characters)
-            if characters_list[i].isalpha():
-                new_char = __class__.encrypted_character(self, characters_list[i])
-                characters_list[i] = new_char
-        return new_char
-    """
-
-
 
 
 def main(path, key):
