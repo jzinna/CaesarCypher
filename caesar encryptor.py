@@ -1,5 +1,7 @@
 ''' This program will take a text and a key (a number), and return the text shifted (number) of letters to the right '''
 
+# This is my original attempt at it, without OOP.
+
 # file-objet = open given file
 # text object = file-object.readlines()
 
