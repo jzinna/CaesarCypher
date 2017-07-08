@@ -1,5 +1,5 @@
 ''' This program will take a text and a key (a number), and return the text shifted (number) of letters to the right
->>> main('test.txt', 14)
+>>> main('test.txt', 1)
 'bb'
 '''
 
@@ -18,37 +18,52 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
             raise KeyError      # in the future, return to the user and ask for a viable key
 
         else:
-            self.lcase_shftd_alph = string.ascii_lowercase[(self.ky - 1):26] + string.ascii_lowercase[0:(self.ky-1)]
-            self.ucase_shftd_alph = string.ascii_uppercase[(self.ky - 1):26] + string.ascii_uppercase[0:(self.ky-1)]
+            self.lcase_shftd_alph = string.ascii_lowercase[self.ky:26] + string.ascii_lowercase[0:self.ky]
+            self.ucase_shftd_alph = string.ascii_uppercase[self.ky:26] + string.ascii_uppercase[0:self.ky]
 
     def encrypt(self):  # define the principal method of the class, encrypt(self):
-        # iterate through each position of the list lns_txt, which will each be a line of the text
+        # iterate through the positions of the list lns_txt, which will each be a line of the text
         for line in self.lns_txt:
             # on each line, a list can be created, list(line), it should have each character in a different position
             characters_list = list(line)
             # iterate through each character
-
-            # without range:
-            for char in characters_list:
-                if char.isalpha():      #(list command creates non-alphanumeric characters)
-                    new_char = __class__.encrypted_character(self, char)
-                    char = new_char
-
-            # with range:
-            """for i in range(len(characters_list)):
-                # check if it's alphanumeric (list command creates non-alphanumeric characters)
+            """for char in characters_list:
+                if char.isalpha():      # confirmed, list command creates non-alphanumeric characters
+                    char = __class__.encrypt_char(self, char)
+                    
+                else:
+                    continue        # non-alphanumeric are not encrypted"""
+            for i in range(len(characters_list)):
+            # check if it's alphanumeric (list command creates non-alphanumeric characters)
                 if characters_list[i].isalpha():
-                    new_char = __class__.encrypted_character(self, characters_list[i])
-                    characters_list[i] = new_char"""
-                #else:
-                    # flow should continue.  If I take out 'else:', will it continue?
-
+                    new_char = __class__.encrypt_char(self, characters_list[i])
+                    characters_list[i] = new_char
+                else:
+                    continue
+            
+            # new_list = [__class__.encrypt_char(self, char) for char in characters_list if char.isalpha()]
+            
             line = str(characters_list)  # replace the original version of the line with the shifted version
         # once we have the whole list of words in the file shifted, convert the list to a string
+        response = str(self.lns_txt)
         # return the string as the response, shifted text
-        return str(self.lns_txt)
+        return response
 
-    def encrypted_character(self, char):
+    def encrypt_char(self,ch):
+        if ch.islower():
+            # find its position pos in the unshifted lcase alphabet
+            pos = string.ascii_lowercase.find(ch)
+            # find the new character in the shifted lcase alphabet, using pos
+            new_char = self.lcase_shftd_alph[pos]
+        if ch.isupper():
+            # find its position pos in the unshifted ucase alphabet
+            pos = string.ascii_uppercase.find(ch)
+            # find the new character in the shifted ucase alphabet, using pos
+            new_char = self.ucase_shftd_alph[pos]
+        return new_char
+
+
+"""    def encrypted_character(self, char):
         # check if lower or upper case
         if char.islower():
             # find its position pos in the unshifted lcase alphabet
@@ -61,6 +76,18 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
             # find the new character in the shifted ucase alphabet, using pos
             newchar = self.ucase_shftd_alph[pos]
         return newchar
+        """
+
+
+""" def iterate_thru_chars_range(self,characters_list):   # with range:
+        for i in range(len(characters_list)):
+            # check if it's alphanumeric (list command creates non-alphanumeric characters)
+            if characters_list[i].isalpha():
+                new_char = __class__.encrypted_character(self, characters_list[i])
+                characters_list[i] = new_char
+        return new_char
+    """
+
 
 
 
