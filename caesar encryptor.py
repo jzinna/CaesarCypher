@@ -5,7 +5,18 @@
 
 import string
 
-
+class Word
+    l_case = string.ascii_lowercase
+    u_case = string.ascii_uppercase
+    
+    def __init__(self,word,key)
+        self.word = word
+        self.key = key
+    
+    
+    
+    
+    
 class WorkingText:  # class for text to be encrypted.  Will require a string and also the key
     
     def __init__(self, lines_of_the_text, key):
