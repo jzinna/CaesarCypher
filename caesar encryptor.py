@@ -6,17 +6,30 @@
 import string
 
 class Word
-    l_case = string.ascii_lowercase
-    u_case = string.ascii_uppercase
-    
-    def __init__(self,word,key)
+        
+    def __init__(self, word, key)
         self.word = word
         self.key = key
     
-    
-    
-    
-    
+    def encrypt(self):
+        for i in range(len(self.word)):
+            new_word = []
+
+            if self.word(i).islower():
+                alphabet = l_case
+            else:
+                alphabet = u_case
+            
+            pos = alphabet.index(self.word(i))
+            new_char = alphabet(pos + self.key)    # work on case where pos+self.key is >26
+            new_word.append(new_char)
+            
+        return = ''.join(new_word)
+            
+
+
+
+
 class WorkingText:  # class for text to be encrypted.  Will require a string and also the key
     
     def __init__(self, lines_of_the_text, key):
@@ -70,6 +83,8 @@ class WorkingText:  # class for text to be encrypted.  Will require a string and
 def main(path, key):
     # key = 20
     # file_object = open('test.txt','r')
+    l_case = string.ascii_lowercase
+    u_case = string.ascii_uppercase
     file_object = open(path, 'r')
     lines_of_the_text = file_object.readlines() #each position in the list will be a string with one line of the given text
     # create an encrypted file object of class 'working_text', providing the list of strings and the key
