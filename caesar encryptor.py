@@ -5,9 +5,9 @@
 
 import string
 
-class Word
+class Word:
         
-    def __init__(self, word, key)
+    def __init__(self, word, key):
         self.word = word
         self.key = key
     
